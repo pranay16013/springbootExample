@@ -20,8 +20,14 @@ public class UserService {
 	
 	public List<User> getAllUser(String field){
 		List<User> user = new ArrayList<User>();
-		userRepository.findAll(Sort.by(Direction.ASC, field)).forEach(user1->user.add(user1));
+		userRepository.findAll(Sort.by(Direction.DESC, field)).forEach(user1->user.add(user1));
 		return user;
+	}
+	
+	public List<User> getUsers(){
+		List<User> u = new ArrayList<User>();
+		userRepository.findAll().forEach(u1->u.add(u1));
+		return u;
 	}
 	
 	public User getUserById(Long id) {

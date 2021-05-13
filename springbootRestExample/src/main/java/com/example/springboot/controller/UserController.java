@@ -46,6 +46,11 @@ public class UserController {
 		return userService.getAllUser(field);
 	}
 	
+	@GetMapping("/users")
+	private List<User> getUsers(){
+		return userService.getUsers();
+	}
+	
 	@GetMapping("/{lastName}")
 	private List<User> getUserByLastName(@PathVariable("lastName")String lastName){
 		return userService.getUserByLastName(lastName);
